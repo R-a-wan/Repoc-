@@ -53,7 +53,8 @@ int main()
     cout<<"Enter a directory path to open (leave blank to quit):\n ";
     getline(cin,dirname);
 
-
+    error_code ec;
+    fs::directory_iterator dir(dirname, ec);
     fs::path dirPath(dirname);
 
 
@@ -84,7 +85,10 @@ int main()
 
 
     return 0;
-}/*
+}
+
+
+/*
 int move(const string &oldPath, const string &newPath)
 {
     const size_t pos = oldPath.find_last_of('\\');
